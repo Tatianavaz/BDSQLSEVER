@@ -1,0 +1,74 @@
+--create table Test(id integer, title varchar(100));
+--insert into Test(id, title) values(1, "Hello");
+--select * from Test;-- Triggers
+
+-- teste para treggers no SQLserver
+-------------------------------------------------
+CREATE TABLE tdsaldo
+( 
+  PRODUTO                VARCHAR(10),
+  SALDO_INICIAL          NUMERIC(10),
+  SALDO_FINAL            NUMERIC(10),
+  DATA_ULT_MOV           DATETIME 
+  );
+GO 
+  
+  INSERT INTO tdsaldo (PRODUTO, SALDO_INICIAL, SALDO_FINAL, DATA_ULT_MOV)
+      VALUES ('Produto A', 0, 100, getdate());
+GO
+
+ CREATE TABLE 
+ (
+ ID_VENDAS   INT,
+ PRODUTO     VARCHAR(10),
+ QUANTIDADE  INT,
+ DATE        DATETIME
+ 
+ );
+GO
+
+CREATE SEQUENCE seq_tdvendas 
+  AS NUMERIC
+  START WITH 1
+  INCREMENT BY 1;
+ 
+CREATE TABLE tdHitoricoVendas
+(
+  PRODUTO VARCHAR(10),
+  QUANTIDADE INT,
+  DATA_VENDA DATETIME
+);
+GO
+
+CREATE TRIGGER trg_ajusteSaldo
+ON tdVendas 
+FOR INSERT
+AS 
+BEGIN
+   DECLARE @QUANTIDADE   INT,
+           @DATA         DATETIME,
+           @PRODUTO      VARCHAR(10),
+          
+        
+   SELECT @DATA = DATA, @QUANTIDADE = QUANTIDADE, @PRODUTO = PRODUTO from INSERTED 
+   
+   UPDATE tdsaldo 
+       SET saldo_final = saldo_final - @QUANTIDADE,
+       DATA_ULT_MOV = @DATA 
+    WHERE PRODUTO = @PRODUTO;
+    
+    INSERT INTO tdHitoricoVendas (PRODUTO, QUANTIDADE, DATA_VENDA)
+       VALUES (@produtos, @quantidade, @data);
+    
+END
+GO
+
+INSERT INTO tdVendas (id_vendas, produto, quantidade, data)
+    VALUES (NEXT VALUES FOR seq_tdvendas, 'Produto A', 2, getdate());
+    
+    SELECT * FROM tdVendas;
+    SELECT * FROM tdsaldo;
+    SELECT * FROM tdHitoricoVendas;
+
+
+
