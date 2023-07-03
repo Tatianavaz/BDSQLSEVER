@@ -70,5 +70,53 @@ INSERT INTO tdVendas (id_vendas, produto, quantidade, data)
     SELECT * FROM tdsaldo;
     SELECT * FROM tdHitoricoVendas;
 
+---------------------------------------------------
+--Mais comandos
+---criação bd
+CREATE TABLE `testebd`.`nome` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nomecol` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `testebd`.`e-mail` (
+  `ide-mail` INT NOT NULL,
+  `e-mailcol` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`ide-mail`));
+
+CREATE TABLE `testebd`.`password` (
+  `idpassword` INT NOT NULL,
+  `passwordcol` VARCHAR(45) BINARY NOT NULL,
+  PRIMARY KEY (`idpassword`, `passwordcol`));
+
+--alguns comandos
+insert into nome (nomecol) values ('Tatiana')
+
+delete from emailcol where idmail = 1
+
+UPDATE `testebd`.`email` SET `emailcol` = 'testando' WHERE (`idemail` = '0') and (`emailcol` = 'teste');
+
+SELECT id, nomecol FROM nome
+
+SELECT id as código, nomecol as nomes FROM nome
+
+---criando tabela db
+create table matricula(
+id integer primary key auto_increment,
+nome varchar(100) not null,
+quantidade integer not null,
+valor decimal(10, 2) not null,
+categoria_id integer not null,
+foreign key (categoria_id) references ,matricula(id)
+);
+
+---junção de tabelas
+select * from matricula join loja on loja.id = matricula.categoria_id;
+
+
+---juntando tabelas com colunas específicas
+select matricula.nome, matricula.quantidade, matricula.valor from matricula 
+join loja on loja.id = loja.categoria_id;
+
 
 
