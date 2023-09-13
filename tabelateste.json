@@ -1,0 +1,62 @@
+[
+	{
+		"id" : 1,
+		"nome" : "teclado",
+		"quantidade" : 100,
+		"valor" : 50.00,
+		"categoria_id" : 1,
+		"id" : 1,
+		"nome" : "camisa",
+		"quantidade" : 20,
+		"valor" : 50.00,
+		"categoria_id" : 1
+	},
+	{
+		"id" : 2,
+		"nome" : "mouse",
+		"quantidade" : 50,
+		"valor" : 30.00,
+		"categoria_id" : 2,
+		"id" : 2,
+		"nome" : "calça",
+		"quantidade" : 20,
+		"valor" : 20.00,
+		"categoria_id" : 2
+	},
+	{
+		"id" : 3,
+		"nome" : "apoio de pe",
+		"quantidade" : 30,
+		"valor" : 150.00,
+		"categoria_id" : 3,
+		"id" : 3,
+		"nome" : "blusa",
+		"quantidade" : 10,
+		"valor" : 50.00,
+		"categoria_id" : 3
+	},
+	{
+		"id" : 4,
+		"nome" : "tela",
+		"quantidade" : 100,
+		"valor" : 250.00,
+		"categoria_id" : 4,
+		"id" : 4,
+		"nome" : "tenis",
+		"quantidade" : 20,
+		"valor" : 50.00,
+		"categoria_id" : 4
+	},
+	{
+		"id" : 5,
+		"nome" : "notbook",
+		"quantidade" : 10,
+		"valor" : 5000.00,
+		"categoria_id" : 5,
+		"id" : 5,
+		"nome" : "chinelo",
+		"quantidade" : 10,
+		"valor" : 40.00,
+		"categoria_id" : 5
+	}
+]
